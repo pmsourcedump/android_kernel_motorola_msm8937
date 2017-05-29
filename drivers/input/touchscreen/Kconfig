@@ -1210,5 +1210,7 @@ config TOUCHSCREEN_SYNAPTICS_DSX_FW_UPDATE_MMI
 	  touchscreens via the MMI design.
 
 source "drivers/input/touchscreen/gt9xx/Kconfig"
+config WAKE_GESTURES
+	bool "wake gestures"
 
 endif
