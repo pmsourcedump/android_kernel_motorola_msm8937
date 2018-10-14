@@ -49,12 +49,14 @@ echo "**** Generating DT.IMG ****"
 
 $DTBTOOL/dtbToolCM -2 -o $KERNEL_DIR/arch/arm/boot/dtb -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/qcom/
 mv dt.img /scripts/Ak2 
-mv out/arch/arm64/boot/zImage scripts1/Ak2 
+mv arch/arm64/boot/Image.gz zImage
+mv arch/arm64/boot/zImage /scripts1/Ak2
+
 cd scripts1
 # This makes a directory for Builds
 echo "Building RADIUM  Kernel for cedric!"
 # This prints ""
-sudo chmod a+x build.sh
+sudo chmod a+x zip.sh
 . zip.sh
 
 # This prints what is is in the builds dir
