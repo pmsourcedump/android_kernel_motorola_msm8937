@@ -44,16 +44,8 @@ make O=out mrproper
 make O=out cedric_defconfig
 
 make O=out -j$(nproc --all)
-# Time for dtb
-echo "**** Generating DT.IMG ****"
-
-cd $OUT 
-ls
-$DTBTOOL/dtbToolCM -2 -o $KERNEL_DIR/arch/arm/boot/dtb -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/qcom/
-mv dt.img /scripts/Ak2 
-ls /home/runner/android_kernel_motorola_msm8953-common/out
-mv arch/arm64/boot/Image.gz zImage
-mv arch/arm64/boot/zImage /scripts1/Ak2
+echo -e "red Radium kernel BUILT NOW PACKING"
+mv $OUT/arch/arm64/boot/Image.gz /scripts1/Ak2 
  
 cd scripts1
 # This makes a directory for Builds
