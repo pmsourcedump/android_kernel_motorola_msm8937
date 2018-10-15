@@ -45,7 +45,8 @@ make O=out cedric_defconfig
 
 make O=out -j$(nproc --all)
 echo -e "red Radium kernel BUILT NOW PACKING"
-ls $OUT/arch/arm64/boot/Image 
+mv out/arch/arm64/boot/Image.gz zImage
+mv out/arch/arm64/boot/zImage /home/runner/android_kernel_motorola_msm8953-common/scripts1/Ak2
 cd scripts1
 # This makes a directory for Builds
 echo "Building RADIUM  Kernel for cedric!"
