@@ -21,10 +21,10 @@ export DIR=$(pwd)
 export CROSS_COMPILE=$(pwd)/toolchain/bin/aarch64-linux-android-
 export ARCH=arm64
 export SUBARCH=arm64
-export DEFCONFIG="cedric_defconfig"
+export DEFCONFIG="montana_defconfig"
 # Export User & Host
 
-export KBUILD_BUILD_USER=INFIXREMIX
+export KBUILD_BUILD_USER=JARLPENGUIN
 export KBUILD_BUILD_HOST=RADIUM
 
 # Clean build always lol
@@ -41,15 +41,15 @@ make O=out clean
 
 make O=out mrproper
 
-make O=out cedric_defconfig
+make O=out montana_defconfig
 
 make O=out -j$(nproc --all)
 echo -e "red Radium kernel BUILT NOW PACKING"
 mv out/arch/arm64/boot/Image.gz zImage
-mv out/arch/arm64/boot/zImage /home/runner/android_kernel_motorola_msm8953-common/scripts1/Ak2
+mv out/arch/arm64/boot/zImage /home/jarlpenguin/android_kernel_motorola_msm8937/scripts1/Ak2
 cd scripts1
 # This makes a directory for Builds
-echo "Building RADIUM  Kernel for cedric!"
+echo "Building RADIUM  Kernel for montana!"
 # This prints ""
 sudo chmod a+x zip.sh
 . zip.sh
