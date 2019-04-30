@@ -455,7 +455,7 @@
 			qcom,freq-req;
 		};
 	};
-
+	
 	qcom,bcl {
 		compatible = "qcom,bcl";
 		qcom,bcl-enable;
@@ -470,11 +470,10 @@
 			qcom,mitigation-freq-khz = <998400>;
 			qcom,vph-high-threshold-uv = <3500000>;
 			qcom,vph-low-threshold-uv = <3200000>;
-			qcom,soc-low-threshold = <3>;
+			qcom,soc-low-threshold = <5>;
 			qcom,thermal-handle = <&msm_thermal_freq>;
 		};
 	};
-
 	blsp1_uart2: serial@78b0000 {
 		compatible = "qcom,msm-lsuart-v14";
 		reg = <0x78b0000 0x200>;
