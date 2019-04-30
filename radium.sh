@@ -8,16 +8,15 @@ red='\033[0;31m'
 # This sets the colour Red 
 BUILD_START=$(date +"%s")
 # This gets the time at the start of the build 
-sudo apt-get update --quiet
+sudo apt update --quiet
 # This gets updates for server/ci
-sudo apt-get install --yes build-essential bc kernel-package libncurses5-dev bzip2 liblz4-tool git curl
+sudo apt install --yes build-essential bc kernel-package libncurses5-dev bzip2 liblz4-tool git curl
 # This gets the main Build packages if not already there
 git clone https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9 --single-branch toolchain
 git clone https://github.com/infixremix/scripts scripts1
 
 # These clone the Kernel and assets
 export DIR=$(pwd)
-
 export CROSS_COMPILE=$(pwd)/toolchain/bin/aarch64-linux-android-
 export ARCH=arm64
 export SUBARCH=arm64
@@ -34,7 +33,7 @@ make clean && make mrproper
 # The MAIN Part
 echo "**** Setting Toolchain ****"
 export ARCH=arm64
-echo "**** Kernel defconfig is set to $KERNEL_DEFCONFIG ****"
+echo "**** Kernel defconfig is set to $DEFCONFIG ****"
 mkdir -p out
 
 make O=out clean
