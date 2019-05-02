@@ -19,11 +19,11 @@ git pull
 echo "**** Kernel defconfig is set to $DEFCONFIG ****"
 # This makes a clean build
 echo "**** Cleaning... ***"
-rm -rf out
-mkdir -p out
+make O=out mrproper
+make O=out mrproper
 # This builds the kernel
 echo "**** Building... ***"
-make montana_defconfig && make -j$(nproc --all)
+make O=out montana_defconfig && make O=out 	-j$(nproc --all)
 # This packages the kernel
 echo -e "**** Packaging.... ****"
 cp out/arch/arm64/boot/Image.gz ../AnyKernel2Template
